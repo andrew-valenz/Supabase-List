@@ -34,9 +34,9 @@
     <body>
         <header class="page-header">
             <img class="logo" src="/assets/html_css_js.png" alt="logo" />
-            <p class="title">Supabase Web App</p>
+            <p class="title">Shopping List!</p>
             <nav>
-                <a href="/">Home</a>
+                <a id="home-btn" href="/">Home</a>
                 <a id="sign-out-link" href="auth">Sign Out</a>
             </nav>
         </header>
@@ -44,15 +44,20 @@
         <main>
             <section>
                 <form class="create-form">
-                    <label id="item-form">Item</label>
-                    <input />
-                    <label id="quanity-form">Quantity</label>
-                    <input type="number" min="1" />
-                    <button type="submit" id="submit-button">Submit</button>
+                    <label id="item-form">
+                        Item:
+                        <input name="item" />
+                    </label>
+                    <label id="quanity-form">
+                        Quantity
+                        <input type="number" min="1" />
+                    </label>
+                    <button type="submit" id="add-button">Add to list!</button>
                 </form>
+                <p id="error"></p>
                 <ul class="list"></ul>
                 <section class="delete-button">
-                    <button type="button" id="delete">Delete</button>
+                    <button type="button" id="delete">Delete List</button>
                 </section>
             </section>
         </main>

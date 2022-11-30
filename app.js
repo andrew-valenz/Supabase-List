@@ -4,10 +4,10 @@ import './auth/user.js';
 import { renderListItem } from './render-utils.js';
 import { getListItems, createListItem, editListItem, deleteList } from './fetch-utils.js';
 /* Get DOM Elements */
+const form = document.querySelector('.create-form');
 const deleteButton = document.querySelector('#delete');
 const listEl = document.querySelector('.list');
 const error = document.querySelector('#error');
-const form = document.querySelector('.create-form');
 /* State */
 
 /* Events */
@@ -19,7 +19,6 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const data = new FormData(form);
-
     const item = data.get('item');
     const quantity = data.get('quantity');
     form.reset();
