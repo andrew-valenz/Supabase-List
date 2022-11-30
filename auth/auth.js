@@ -1,5 +1,5 @@
 // import services and utilities
-import { createListItem, getUser, signInUser, signUpUser } from '../fetch-utils.js';
+import { createListItem, getListItems, getUser, signInUser, signUpUser } from '../fetch-utils.js';
 
 // If on this /auth page but we have a user, it means
 // user probably navigated here by the url.
@@ -24,20 +24,20 @@ window.addEventListener('load', () => {
     displayAuth();
 });
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
 
-    const data = new FormData(form);
-    const item = data.get('item');
-    const quantity = data.get('quantity');
+//     const data = new FormData(form);
+//     const item = data.get('item');
+//     const quantity = data.get('quantity');
 
-    const newItem = await createListItem(item, quantity);
-    if (newItem) {
-        response = await 
-    } else {
-        error.textContent = 'Something went wrong while adding your quantity';
-    }
-});
+//     const newItem = await createListItem(item, quantity);
+//     if (newItem) {
+//         fetchAndDisplayList();
+//     } else {
+//         error.textContent = 'Something went wrong while adding your quantity';
+//     }
+// });
 
 changeType.addEventListener('click', (e) => {
     // using an <a> tag, don't let it actually
@@ -99,3 +99,14 @@ function displayAuth() {
         changeType.textContent = 'Already have an account?';
     }
 }
+
+// async function fetchAndDisplayList() {
+//     listEl.textContent = '';
+//     const list = await getListItems();
+//     if (list) {
+//         for (let item of list) {
+//             const listItemEl = renderListItem(item);
+//             listEl.append(listItemEl);
+//         }
+//     }
+// }
