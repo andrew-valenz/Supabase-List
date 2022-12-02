@@ -1,5 +1,5 @@
 // import services and utilities
-import { getUser, signInUser, signUpUser } from '../fetch-utils.js';
+import { createListItem, getListItems, getUser, signInUser, signUpUser } from '../fetch-utils.js';
 
 // If on this /auth page but we have a user, it means
 // user probably navigated here by the url.
@@ -13,6 +13,7 @@ const authHeader = authForm.querySelector('h2');
 const authButton = authForm.querySelector('button');
 const changeType = authForm.querySelector('a');
 const errorDisplay = authForm.querySelector('.error');
+const form = document.querySelector('.create-form');
 
 /* let state */
 let isSignIn = true;
@@ -22,6 +23,21 @@ let isSignIn = true;
 window.addEventListener('load', () => {
     displayAuth();
 });
+
+// form.addEventListener('submit', async (e) => {
+//     e.preventDefault();
+
+//     const data = new FormData(form);
+//     const item = data.get('item');
+//     const quantity = data.get('quantity');
+
+//     const newItem = await createListItem(item, quantity);
+//     if (newItem) {
+//         fetchAndDisplayList();
+//     } else {
+//         error.textContent = 'Something went wrong while adding your quantity';
+//     }
+// });
 
 changeType.addEventListener('click', (e) => {
     // using an <a> tag, don't let it actually
@@ -83,3 +99,14 @@ function displayAuth() {
         changeType.textContent = 'Already have an account?';
     }
 }
+
+// async function fetchAndDisplayList() {
+//     listEl.textContent = '';
+//     const list = await getListItems();
+//     if (list) {
+//         for (let item of list) {
+//             const listItemEl = renderListItem(item);
+//             listEl.append(listItemEl);
+//         }
+//     }
+// }
